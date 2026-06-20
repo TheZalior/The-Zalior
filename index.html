@@ -20,7 +20,7 @@
             color: #ffffff;
             font-family: 'Space Grotesk', sans-serif;
             overflow-x: hidden;
-            padding-top: 80px;
+            padding-top: 100px; /* Adjusted padding to push down content cleanly past fixed header */
         }
 
         /* --- SITE HEADER --- */
@@ -100,40 +100,10 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 60, 0); }
         }
 
-        /* --- HERO BANNER --- */
-        .hero-section {
-            height: 40vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(rgba(13,13,13,0.85), rgba(13,13,13,1)), url('https://images.unsplash.com/photo-1618336753974-aae8e04506aa?q=80&w=1600') center/cover no-repeat;
-            border-bottom: 2px solid #1a1a1a;
-        }
-        .hero-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 64px;
-            font-weight: 800;
-            letter-spacing: -2px;
-            text-transform: uppercase;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        .hero-title span {
-            color: #ff003c;
-        }
-        .hero-subtitle {
-            font-size: 14px;
-            letter-spacing: 3px;
-            color: #888;
-            text-transform: uppercase;
-        }
-
         /* --- PRODUCT CATALOGUE --- */
         .catalog-container {
             max-width: 1400px;
-            margin: 40px auto;
+            margin: 20px auto 40px auto;
             padding: 0 40px;
         }
         .collection-title {
@@ -470,12 +440,6 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero-section">
-        <h1 class="hero-title">THE <span>ZALIOR</span></h1>
-        <p class="hero-subtitle">Premium Heavyweight Otaku Streetwear Matrix</p>
-    </section>
-
     <!-- PRODUCT CATALOGUE -->
     <main class="catalog-container">
         
@@ -726,22 +690,26 @@
         let selectedProduct = "";
         let selectedPrice = "";
 
+        // Toggle visibility of the AI Sidebar drawer panel
         function toggleAiAssistant() {
             const drawer = document.getElementById('ai-drawer');
             drawer.classList.toggle('open');
         }
 
+        // Fills input instantly when picking suggestion chips
         function handleSuggestion(text) {
             document.getElementById('ai-input-field').value = text;
             submitAiQuery();
         }
 
+        // Monitors custom keystrokes inside chat inputs
         function handleChatKeyPress(event) {
             if (event.key === "Enter") {
                 submitAiQuery();
             }
         }
 
+        // Handles user input and displays contextual automated AI stylist responses
         function submitAiQuery() {
             const inputField = document.getElementById('ai-input-field');
             const query = inputField.value.trim();
@@ -784,6 +752,7 @@
             }, 400);
         }
 
+        // Opens up interactive modal frames 
         function openOrderModal(name, price) {
             selectedProduct = name;
             selectedPrice = price;
@@ -792,10 +761,12 @@
             document.getElementById('order-modal').classList.add('open');
         }
 
+        // Closes modal frames cleanly
         function closeOrderModal() {
             document.getElementById('order-modal').classList.remove('open');
         }
 
+        // Gathers context strings then passes variables out through native WhatsApp endpoints
         function sendOrderViaWhatsApp() {
             const name = document.getElementById('customer-name').value.trim();
             const phone = document.getElementById('customer-phone').value.trim();
