@@ -4,13 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE ZALIOR | Premium Streetwear</title>
-    
-    <!-- BRAND LOGO FAVICON (Updated to match your exact file case) -->
-    <link rel="icon" type="image/jpeg" href="Logo.jpg">
-    
-    <!-- Google Fonts for Clean Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="LOGO.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
@@ -28,7 +23,7 @@
             padding-top: 80px; /* Space for fixed header */
         }
 
-        /* --- SITE HEADER --- */
+        /* --- SITE HEADER (Cleaned & Expanded) --- */
         .site-header {
             background-color: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
@@ -38,7 +33,7 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 15px 0;
+            padding: 15px 0; /* Adjusted padding slightly for image logo */
         }
         .header-container {
             max-width: 1400px;
@@ -51,11 +46,12 @@
         .brand-logo {
             display: flex;
             align-items: center;
+            text-decoration: none;
         }
         .brand-logo img {
-            height: 40px; /* Adjust scale to fit the navigation bar nicely */
+            height: 45px; /* Adjust this value if you want the logo bigger or smaller */
             width: auto;
-            object-fit: contain;
+            display: block;
         }
         .main-nav {
             display: flex;
@@ -319,18 +315,16 @@
 </head>
 <body>
 
-    <!-- HEADER NAVIGATION -->
     <header class="site-header">
         <div class="header-container">
-            <!-- EMBEDDED LOGO IMAGE INSTEAD OF PLAIN TEXT -->
             <a href="#" class="brand-logo">
-                <img src="Logo.jpg" alt="ZALIOR">
+                <img src="LOGO.png" alt="ZALIOR">
             </a>
             <nav class="main-nav">
                 <a href="#" class="nav-link active">Drop 01</a>
                 <a href="#" class="nav-link">Collections</a>
                 <a href="#" class="nav-link">About</a>
-            </nav>
+                </nav>
             <div class="header-actions">
                 <button class="ai-stylist-btn" onclick="toggleAiAssistant()">
                     <span class="ai-pulse"></span> AI Stylist
@@ -340,14 +334,12 @@
         </div>
     </header>
 
-    <!-- HERO PROFILE -->
     <section class="hero-section">
         <h1 class="hero-title">THE ZALIOR</h1>
         <p class="hero-subtitle">Timeless Style. Premium Quality.</p>
         <div class="hero-tag">Est. 2024 — Drop 01</div>
     </section>
 
-    <!-- PRODUCT CATALOGUE -->
     <main class="drop-section">
         <h2 class="section-title">Drop 01</h2>
         <div class="grid-container">
@@ -369,7 +361,6 @@
         </div>
     </main>
 
-    <!-- AI SIDEBAR DRAWNER -->
     <div id="ai-drawer" class="ai-drawer">
         <div class="drawer-header">
             <h3>ZALIOR AI // STYLIST</h3>
@@ -387,12 +378,10 @@
         </div>
     </div>
 
-    <!-- SITE FOOTER -->
     <footer class="site-footer">
         <p class="footer-text">&copy; 2026 THE ZALIOR. All Rights Reserved.</p>
     </footer>
 
-    <!-- INTERACTIVE JAVASCRIPT -->
     <script>
         function toggleAiAssistant() {
             const drawer = document.getElementById('ai-drawer');
