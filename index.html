@@ -20,10 +20,10 @@
             color: #ffffff;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            padding-top: 80px; /* Space for fixed header */
+            padding-top: 80px;
         }
 
-        /* --- SITE HEADER (Cleaned & Expanded) --- */
+        /* --- SITE HEADER --- */
         .site-header {
             background-color: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
@@ -33,7 +33,7 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 15px 0; /* Adjusted padding slightly for image logo */
+            padding: 15px 0;
         }
         .header-container {
             max-width: 1400px;
@@ -49,7 +49,7 @@
             text-decoration: none;
         }
         .brand-logo img {
-            height: 45px; /* Adjust this value if you want the logo bigger or smaller */
+            height: 45px;
             width: auto;
             display: block;
         }
@@ -72,13 +72,6 @@
             display: flex;
             align-items: center;
             gap: 25px;
-        }
-        .cart-icon {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 13px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
         }
 
         /* --- INTERACTIVE AI STYLIST BUTTON --- */
@@ -116,19 +109,19 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 204, 0); }
         }
 
-        /* --- HERO BANNER (THE ZALIOR) --- */
+        /* --- HERO BANNER --- */
         .hero-section {
-            height: 60vh;
+            height: 50vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1600') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1509281373149-e957c6296406?q=80&w=1600') center/cover no-repeat;
             padding: 20px;
         }
         .hero-title {
-            font-size: 64px;
+            font-size: 54px;
             font-weight: 700;
             letter-spacing: 12px;
             margin-bottom: 15px;
@@ -139,75 +132,200 @@
             letter-spacing: 4px;
             color: #aaaaaa;
             text-transform: uppercase;
-            margin-bottom: 30px;
-        }
-        .hero-tag {
-            background-color: #ffffff;
-            color: #000000;
-            padding: 12px 30px;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
         }
 
-        /* --- PRODUCT GRID (DROP 01) --- */
-        .drop-section {
-            max-width: 1200px;
-            margin: 60px auto;
+        /* --- PRODUCT CATALOGUE & TABS --- */
+        .catalog-container {
+            max-width: 1300px;
+            margin: 50px auto;
             padding: 0 20px;
         }
-        .section-title {
-            font-size: 32px;
-            letter-spacing: 8px;
-            text-align: center;
+        .collection-title {
+            font-size: 26px;
+            letter-spacing: 6px;
             text-transform: uppercase;
-            margin-bottom: 40px;
+            margin: 50px 0 25px 0;
+            border-left: 3px solid #ffffff;
+            padding-left: 15px;
         }
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
         .product-card {
             background-color: #0b0b0b;
             border: 1px solid #141414;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
         .product-card:hover {
             transform: translateY(-5px);
-            border-color: #222222;
+            border-color: #333333;
         }
-        .product-name {
-            font-size: 18px;
-            font-weight: 700;
-            letter-spacing: 1px;
+        .product-img-wrapper {
+            width: 100%;
+            height: 380px;
+            background-color: #111;
+            overflow: hidden;
+        }
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-meta-top {
             margin-bottom: 10px;
         }
-        .product-price {
-            color: #888888;
-            font-size: 14px;
-            margin-bottom: 25px;
+        .product-name {
+            font-size: 16px;
+            font-weight: 700;
             letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
         }
-        .add-to-cart-btn {
+        .product-caption {
+            font-size: 12px;
+            color: #777777;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+        .product-specs {
+            font-size: 11px;
+            color: #aaa;
+            background: #111;
+            padding: 6px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+        .product-price {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .buy-now-btn {
             background-color: #ffffff;
             color: #000000;
             border: none;
             width: 100%;
-            max-width: 200px;
             padding: 12px;
             font-size: 12px;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
+            transition: background 0.2s;
+        }
+        .buy-now-btn:hover {
+            background-color: #dddddd;
+        }
+
+        /* --- CHECKOUT MODAL MODIFIED FOR DIRECT ORDERING --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(5px);
+            z-index: 3000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        .modal-overlay.open {
+            visibility: visible;
+            opacity: 1;
+        }
+        .checkout-modal {
+            background: #0a0a0a;
+            border: 1px solid #222222;
+            width: 100%;
+            max-width: 450px;
+            padding: 35px;
+            border-radius: 8px;
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .modal-title {
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #1a1a1a;
+            padding-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        .form-label {
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 6px;
+        }
+        .form-input {
+            width: 100%;
+            background: #111;
+            border: 1px solid #222;
+            padding: 12px;
+            color: #fff;
+            border-radius: 4px;
+            outline: none;
+            font-family: inherit;
+        }
+        .form-input:focus {
+            border-color: #555;
+        }
+        .submit-order-btn {
+            background-color: #25D366;
+            color: #ffffff;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 4px;
             transition: opacity 0.2s;
         }
-        .add-to-cart-btn:hover {
+        .submit-order-btn:hover {
             opacity: 0.9;
         }
 
@@ -293,9 +411,6 @@
             border-radius: 4px;
             outline: none;
         }
-        .ai-input:focus {
-            border-color: #444444;
-        }
 
         /* --- SITE FOOTER --- */
         .site-footer {
@@ -321,45 +436,254 @@
                 <img src="LOGO.png" alt="ZALIOR">
             </a>
             <nav class="main-nav">
-                <a href="#" class="nav-link active">Drop 01</a>
-                <a href="#" class="nav-link">Collections</a>
-                <a href="#" class="nav-link">About</a>
-                </nav>
+                <a href="#summer" class="nav-link">Summer</a>
+                <a href="#winter" class="nav-link">Winter</a>
+            </nav>
             <div class="header-actions">
                 <button class="ai-stylist-btn" onclick="toggleAiAssistant()">
                     <span class="ai-pulse"></span> AI Stylist
                 </button>
-                <a href="#" class="cart-icon">Cart (0)</a>
             </div>
         </div>
     </header>
 
     <section class="hero-section">
         <h1 class="hero-title">THE ZALIOR</h1>
-        <p class="hero-subtitle">Timeless Style. Premium Quality.</p>
-        <div class="hero-tag">Est. 2024 — Drop 01</div>
+        <p class="hero-subtitle">Premium Collections — Order Directly on WhatsApp</p>
     </section>
 
-    <main class="drop-section">
-        <h2 class="section-title">Drop 01</h2>
+    <main class="catalog-container">
+        
+        <h2 id="summer" class="collection-title">Summer Collection '26</h2>
         <div class="grid-container">
             <div class="product-card">
-                <h3 class="product-name">Noir Core Hoodie</h3>
-                <p class="product-price">PKR 6,499</p>
-                <button class="add-to-cart-btn">Add To Cart</button>
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600" alt="Summer Item" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-meta-top">
+                        <h3 class="product-name">Aero-Weave Boxy Tee</h3>
+                        <p class="product-caption">Ultra-breathable premium cotton drop-shoulder design cut perfectly for summer nights.</p>
+                        <span class="product-specs">Free Size | Width: 24" | Length: 29"</span>
+                    </div>
+                    <div>
+                        <div class="product-price">PKR 1,650</div>
+                        <button class="buy-now-btn" onclick="openOrderModal('Aero-Weave Boxy Tee', 'PKR 1,650')">Buy via WhatsApp</button>
+                    </div>
+                </div>
             </div>
             <div class="product-card">
-                <h3 class="product-name">Silent Identity Tee</h3>
-                <p class="product-price">PKR 2,999</p>
-                <button class="add-to-cart-btn">Add To Cart</button>
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=600" alt="Summer Item" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-meta-top">
+                        <h3 class="product-name">Desert Phantom Vest</h3>
+                        <p class="product-caption">Raw edge minimal street aesthetic cut from lightweight premium unbrushed fleece.</p>
+                        <span class="product-specs">Medium | Width: 21" | Length: 27"</span>
+                    </div>
+                    <div>
+                        <div class="product-price">PKR 1,550</div>
+                        <button class="buy-now-btn" onclick="openOrderModal('Desert Phantom Vest', 'PKR 1,550')">Buy via WhatsApp</button>
+                    </div>
+                </div>
             </div>
             <div class="product-card">
-                <h3 class="product-name">Urban Phantom Cargo</h3>
-                <p class="product-price">PKR 5,999</p>
-                <button class="add-to-cart-btn">Add To Cart</button>
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600" alt="Summer Item" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-meta-top">
+                        <h3 class="product-name">Vandal Graphic Tee</h3>
+                        <p class="product-caption">Distressed cyber typography artwork printed in high density puff on midnight black knit.</p>
+                        <span class="product-specs">Large | Width: 23" | Length: 30"</span>
+                    </div>
+                    <div>
+                        <div class="product-price">PKR 1,790</div>
+                        <button class="buy-now-btn" onclick="openOrderModal('Vandal Graphic Tee', 'PKR 1,790')">Buy via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1519985176271-adb1088fa94c?q=80&w=600" alt="Summer Item" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-meta-top">
+                        <h3 class="product-name">Oasis Linen Shorts</h3>
+                        <p class="product-caption">Relaxed fit lightweight luxury linen shorts equipped with tactical hidden zipper loops.</p>
+                        <span class="product-specs">Adjustable | Waist: 30-34" | Length: 19"</span>
+                    </div>
+                    <div>
+                        <div class="product-price">PKR 1,850</div>
+                        <button class="buy-now-btn" onclick="openOrderModal('Oasis Linen Shorts', 'PKR 1,850')">Buy via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=600" alt="Summer Item" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-meta-top">
+                        <h3 class="product-name">Krypton Minimal Shirt</h3>
+                        <p class="product-caption">Open Cuban collar vacation statement aesthetic piece built for relaxed, breathable flows.</p>
+                        <span class="product-specs">Medium | Width: 22" | Length: 28"</span>
+                    </div>
+                    <div>
+                        <div class="product-price">PKR 1,950</div>
+                        <button class="buy-now-btn" onclick="openOrderModal('Krypton Minimal Shirt', 'PKR 1,950')">Buy via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=600" alt="Summer Item" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-meta-top">
+                        <h3 class="product-name">Solar Flare Knit</h3>
+                        <p class="product-caption">Open structured lightweight crochet-style luxury knit statement top for modular stacking.</p>
+                        <span class="product-specs">Free Size | Width: 24" | Length: 28"</span>
+                    </div>
+                    <div>
+                        <div class="product-price">PKR 1,990</div>
+                        <button class="buy-now-btn" onclick="openOrderModal('Solar Flare Knit', 'PKR 1,990')">Buy via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 id="winter" class="collection-title">Winter Collection '26</h2>
+        <div class="grid-container">
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600" alt="Winter Item" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-meta-top">
+                        <h3 class="product-name">Obsidian Heavy Hoodie</h3>
+                        <p class="product-caption">450 GSM ultra-dense loopback cotton luxury structure with zero synthetic blend elements.</p>
+                        <span class="product-specs">Large | Width: 25" | Length: 30"</span>
+                    </div>
+                    <div>
+                        <div class="product-price">PKR 1,999</div>
+                        <button class="buy-now-btn" onclick="openOrderModal('Obsidian Heavy Hoodie', 'PKR 1,999')">Buy via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=600" alt="Winter Item" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-meta-top">
+                        <h3 class="product-name">Ghost Kinetic Sweatshirt</h3>
+                        <p class="product-caption">Sleek off-white brutalist cut sweatshirt boasting dropped shoulder seam profiles.</p>
+                        <span class="product-specs">Medium | Width: 23" | Length: 28"</span>
+                    </div>
+                    <div>
+                        <div class="product-price">PKR 1,890</div>
+                        <button class="buy-now-btn" onclick="openOrderModal('Ghost Kinetic Sweatshirt', 'PKR 1,890')">Buy via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1614975058789-41316d0e2e9c?q=80&w=600" alt="Winter Item" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-meta-top">
+                        <h3 class="product-name">Asphalt Mock Neck</h3>
+                        <p class="product-caption">High collar structural interlock knit ribbing engineered to lock down warmth cleanly.</p>
+                        <span class="product-specs">Small | Width: 20" | Length: 26"</span>
+                    </div>
+                    <div>
+                        <div class="product-price">PKR 1,690</div>
+                        <button class="buy-now-btn" onclick="openOrderModal('Asphalt Mock Neck', 'PKR 1,690')">Buy via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544022613-e87ca75a784a?q=80&w=600" alt="Winter Item" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-meta-top">
+                        <h3 class="product-name">Rogue Leather Liner</h3>
+                        <p class="product-caption">Asymmetric layered design intended for structural inner winter core protection stacks.</p>
+                        <span class="product-specs">Medium | Width: 22" | Length: 27"</span>
+                    </div>
+                    <div>
+                        <div class="product-price">PKR 1,950</div>
+                        <button class="buy-now-btn" onclick="openOrderModal('Rogue Leather Liner', 'PKR 1,950')">Buy via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=600" alt="Winter Item" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-meta-top">
+                        <h3 class="product-name">Glitch Matrix Windbreaker</h3>
+                        <p class="product-caption">Matte-finish hyper shielding shell constructed with premium micro-mesh interior layers.</p>
+                        <span class="product-specs">Large | Width: 24" | Length: 29"</span>
+                    </div>
+                    <div>
+                        <div class="product-price">PKR 1,850</div>
+                        <button class="buy-now-btn" onclick="openOrderModal('Glitch Matrix Windbreaker', 'PKR 1,850')">Buy via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544923246-77307dd654cb?q=80&w=600" alt="Winter Item" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-meta-top">
+                        <h3 class="product-name">Tundra Tactical Fleece</h3>
+                        <p class="product-caption">Plush brushed high-pile insulating tech-fleece layered with modular canvas chest blocks.</p>
+                        <span class="product-specs">XL | Width: 26" | Length: 31"</span>
+                    </div>
+                    <div>
+                        <div class="product-price">PKR 1,980</div>
+                        <button class="buy-now-btn" onclick="openOrderModal('Tundra Tactical Fleece', 'PKR 1,980')">Buy via WhatsApp</button>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
+
+    <div id="order-modal" class="modal-overlay">
+        <div class="checkout-modal">
+            <button class="modal-close" onclick="closeOrderModal()">&times;</button>
+            <h3 class="modal-title">Delivery Details</h3>
+            
+            <div class="form-group">
+                <label class="form-label">Item Selected</label>
+                <input type="text" id="modal-product-name" class="form-input" readonly style="background:#1a1a1a; border-color:#333; color:#888;">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Price</label>
+                <input type="text" id="modal-product-price" class="form-input" readonly style="background:#1a1a1a; border-color:#333; color:#888;">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Your Name *</label>
+                <input type="text" id="customer-name" placeholder="Enter your full name" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Phone Number *</label>
+                <input type="tel" id="customer-phone" placeholder="e.g. 03XXXXXXXXX" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Complete Shipping Address *</label>
+                <textarea id="customer-address" placeholder="House number, Street, Sector/Area, City" class="form-input" style="height:80px; resize:none;" required></textarea>
+            </div>
+            
+            <button class="submit-order-btn" onclick="sendOrderViaWhatsApp()">Confirm & Order on WhatsApp</button>
+        </div>
+    </div>
 
     <div id="ai-drawer" class="ai-drawer">
         <div class="drawer-header">
@@ -367,10 +691,10 @@
             <button class="close-btn" onclick="toggleAiAssistant()">&times;</button>
         </div>
         <div class="drawer-body">
-            <p class="ai-message">Welcome. Looking for sizing advice or outfit matching strategies for <strong>Drop 01</strong>? Ask me anything.</p>
+            <p class="ai-message">Welcome to THE ZALIOR. Looking for sizing charts, outfit stacking strategies, or fabric info for our Summer/Winter collection? Ask away.</p>
             <div class="ai-suggestions">
-                <button class="suggest-chip" onclick="fillInput('Find my size for Noir Core Hoodie')">Find my size for Noir Core Hoodie</button>
-                <button class="suggest-chip" onclick="fillInput('Style combinations for Urban Phantom Cargo')">Style the Urban Phantom Cargo</button>
+                <button class="suggest-chip" onclick="fillInput('What is the width of Aero-Weave Boxy Tee?')">What is the width of Aero-Weave Boxy Tee?</button>
+                <button class="suggest-chip" onclick="fillInput('Which hoodies are in the Winter collection?')">Which items are in Winter Collection?</button>
             </div>
         </div>
         <div class="drawer-footer">
@@ -383,6 +707,9 @@
     </footer>
 
     <script>
+        let selectedProduct = "";
+        let selectedPrice = "";
+
         function toggleAiAssistant() {
             const drawer = document.getElementById('ai-drawer');
             drawer.classList.toggle('open');
@@ -391,6 +718,49 @@
         function fillInput(text) {
             document.getElementById('ai-input-field').value = text;
             document.getElementById('ai-input-field').focus();
+        }
+
+        // Open checkout modal and hold product specs data
+        function openOrderModal(name, price) {
+            selectedProduct = name;
+            selectedPrice = price;
+            document.getElementById('modal-product-name').value = name;
+            document.getElementById('modal-product-price').value = price;
+            document.getElementById('order-modal').classList.add('open');
+        }
+
+        function closeOrderModal() {
+            document.getElementById('order-modal').classList.remove('open');
+        }
+
+        // WhatsApp generation engine
+        function sendOrderViaWhatsApp() {
+            const name = document.getElementById('customer-name').value.trim();
+            const phone = document.getElementById('customer-phone').value.trim();
+            const address = document.getElementById('customer-address').value.trim();
+
+            if (!name || !phone || !address) {
+                alert("Please fill in all details to process your checkout delivery sequence.");
+                return;
+            }
+
+            // Standard message construction formatting
+            const message = `🔥 *NEW ORDER - THE ZALIOR* 🔥\n\n` +
+                            `📦 *Product:* ${selectedProduct}\n` +
+                            `💰 *Price:* ${selectedPrice}\n\n` +
+                            `👤 *Customer Info:* \n` +
+                            `- *Name:* ${name}\n` +
+                            `- *Contact:* ${phone}\n\n` +
+                            `📍 *Delivery Address:* \n${address}\n\n` +
+                            `Please verify my order availability!`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappNumber = "923002577434"; // Formatted standard number structure 
+            
+            // Open user WhatsApp application layer automatically
+            window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`, '_blank');
+            
+            closeOrderModal();
         }
     </script>
 
