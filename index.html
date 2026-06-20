@@ -65,6 +65,41 @@
             color: #ff003c;
         }
 
+        /* --- INTERACTIVE AI STYLIST BUTTON --- */
+        .ai-stylist-btn {
+            background: #111111;
+            color: #ffffff;
+            border: 1px solid #222;
+            padding: 8px 16px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        .ai-stylist-btn:hover {
+            border-color: #ff003c;
+            background: #161616;
+        }
+        .ai-pulse {
+            width: 6px;
+            height: 6px;
+            background-color: #ff003c;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #ff003c;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 60, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 0, 60, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 60, 0); }
+        }
+
         /* --- HERO BANNER --- */
         .hero-section {
             height: 40vh;
@@ -310,6 +345,96 @@
             background-color: #d00030;
         }
 
+        /* --- AI ASSISTANT SLIDE PANEL --- */
+        .ai-drawer {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            height: 100%;
+            background: #0f0f0f;
+            border-left: 2px solid #1a1a1a;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.7);
+            z-index: 2000;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+        }
+        .ai-drawer.open {
+            right: 0;
+        }
+        .drawer-header {
+            padding: 30px;
+            border-bottom: 1px solid #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .drawer-header h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+        .close-btn {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .close-btn:hover { color: #fff; }
+        .drawer-body {
+            padding: 30px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+        .ai-message {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .ai-suggestions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 25px;
+        }
+        .suggest-chip {
+            background: #141414;
+            border: 1px solid #222;
+            color: #888;
+            padding: 12px;
+            text-align: left;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        .suggest-chip:hover {
+            border-color: #ff003c;
+            color: #ffffff;
+            background: #1a1a1a;
+        }
+        .drawer-footer {
+            padding: 20px;
+            border-top: 1px solid #1a1a1a;
+            background: #0a0a0a;
+        }
+        .ai-input {
+            width: 100%;
+            background: #141414;
+            border: 1px solid #222;
+            padding: 14px;
+            color: #ffffff;
+            font-size: 13px;
+            outline: none;
+            font-family: inherit;
+        }
+        .ai-input:focus {
+            border-color: #ff003c;
+        }
+
         /* --- FOOTER --- */
         .site-footer {
             background-color: #080808;
@@ -337,7 +462,11 @@
             <nav class="main-nav">
                 <a href="#drop" class="nav-link active">Manga Drop</a>
             </nav>
-            <div></div>
+            <div class="header-actions">
+                <button class="ai-stylist-btn" onclick="toggleAiAssistant()">
+                    <span class="ai-pulse"></span> AI Stylist
+                </button>
+            </div>
         </div>
     </header>
 
@@ -568,6 +697,25 @@
         </div>
     </div>
 
+    <!-- AI SIDEBAR DRAWNER -->
+    <div id="ai-drawer" class="ai-drawer">
+        <div class="drawer-header">
+            <h3>ZALIOR AI // STYLIST</h3>
+            <button class="close-btn" onclick="toggleAiAssistant()">&times;</button>
+        </div>
+        <div class="drawer-body" id="drawer-chat-body">
+            <p class="ai-message" id="initial-ai-msg">Welcome to THE ZALIOR. Looking for sizing charts, outfit stacking strategies, or fabric info for our Samurai/Manga collection? Ask away.</p>
+            <div class="ai-suggestions" id="drawer-suggestions">
+                <button class="suggest-chip" onclick="handleSuggestion('What is the size of Mysterious Samurai Print Tee?')">What is the size of Mysterious Samurai Print Tee?</button>
+                <button class="suggest-chip" onclick="handleSuggestion('What items are in the drop?')">What items are in the drop?</button>
+            </div>
+        </div>
+        <div class="drawer-footer" style="display: flex; gap: 10px; align-items: center;">
+            <input type="text" id="ai-input-field" placeholder="Type your fit or style query..." class="ai-input" onkeypress="handleChatKeyPress(event)">
+            <button onclick="submitAiQuery()" style="background: #ff003c; color: #fff; border: none; padding: 12px 18px; font-weight: 700; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer;">Send</button>
+        </div>
+    </div>
+
     <!-- SITE FOOTER -->
     <footer class="site-footer">
         <p class="footer-text">&copy; 2026 THE ZALIOR CORE. All Rights Reserved.</p>
@@ -577,6 +725,64 @@
     <script>
         let selectedProduct = "";
         let selectedPrice = "";
+
+        function toggleAiAssistant() {
+            const drawer = document.getElementById('ai-drawer');
+            drawer.classList.toggle('open');
+        }
+
+        function handleSuggestion(text) {
+            document.getElementById('ai-input-field').value = text;
+            submitAiQuery();
+        }
+
+        function handleChatKeyPress(event) {
+            if (event.key === "Enter") {
+                submitAiQuery();
+            }
+        }
+
+        function submitAiQuery() {
+            const inputField = document.getElementById('ai-input-field');
+            const query = inputField.value.trim();
+            if (!query) return;
+
+            const chatBody = document.getElementById('drawer-chat-body');
+            
+            document.getElementById('initial-ai-msg').style.display = 'none';
+            document.getElementById('drawer-suggestions').style.display = 'none';
+
+            const userDiv = document.createElement('p');
+            userDiv.style.color = '#ffffff';
+            userDiv.style.fontSize = '13px';
+            userDiv.style.marginBottom = '15px';
+            userDiv.style.background = '#141414';
+            userDiv.style.padding = '10px';
+            userDiv.style.borderLeft = '2px solid #ff003c';
+            userDiv.innerHTML = `<strong>You:</strong> ${query}`;
+            chatBody.appendChild(userDiv);
+
+            inputField.value = "";
+
+            let aiResponse = "Analyzing fabric weave matrices... For immediate support or custom orders, hit 'Buy Now' on any product to route directly to our team!";
+            
+            if (query.toLowerCase().includes('samurai') || query.toLowerCase().includes('size')) {
+                aiResponse = "The *Mysterious Samurai Print Tee* is engineered as a heavy oversized boxy drop-shoulder silhouette. Dimensions: Width 25 inches, Length 30 inches. Built on pure cotton weave.";
+            } else if (query.toLowerCase().includes('drop') || query.toLowerCase().includes('items')) {
+                aiResponse = "Volume 01 includes: Mysterious Samurai Print, Zoro Ink, Sun God Gear 5, Gojo Six Eyes, Sukuna Curse, Itachi Raven, Cloud Fracture, Uchiha Lightning, Neo-Tokyo Ronin, and Mecha Unit Grid.";
+            }
+
+            setTimeout(() => {
+                const aiDiv = document.createElement('p');
+                aiDiv.className = 'ai-message';
+                aiDiv.style.marginBottom = '20px';
+                aiDiv.style.fontSize = '13px';
+                aiDiv.style.lineHeight = '1.5';
+                aiDiv.innerHTML = `<strong>ZALIOR AI:</strong> ${aiResponse}`;
+                chatBody.appendChild(aiDiv);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 400);
+        }
 
         function openOrderModal(name, price) {
             selectedProduct = name;
@@ -596,11 +802,10 @@
             const address = document.getElementById('customer-address').value.trim();
 
             if (!name || !phone || !address) {
-                alert("Please complete the validation structure fields to process delivery routing.");
+                alert("Please complete the validation fields to route your order request.");
                 return;
             }
 
-            // WhatsApp Message Formatting
             const message = `⚔️ *NEW ORDER - THE ZALIOR* ⚔️\n\n` +
                             `👕 *Graphic:* ${selectedProduct}\n` +
                             `💵 *Price:* ${selectedPrice}\n\n` +
@@ -608,7 +813,7 @@
                             `- *Name:* ${name}\n` +
                             `- *Phone:* ${phone}\n\n` +
                             `📍 *Delivery Shipping Address:* \n${address}\n\n` +
-                            `Please send payment tracking and order confirmation!`;
+                            `Please send payment details and confirm order!`;
 
             const encodedMessage = encodeURIComponent(message);
             const whatsappNumber = "923002577434"; 
