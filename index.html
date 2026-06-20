@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE ZALIOR | Premium Streetwear</title>
     
-    <!-- BRAND LOGO FAVICON -->
-    <link rel="icon" type="image/jpeg" href="LOGO.jpg">
+    <!-- BRAND LOGO FAVICON (Updated to match your exact file case) -->
+    <link rel="icon" type="image/jpeg" href="Logo.jpg">
     
     <!-- Google Fonts for Clean Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,7 @@
             padding-top: 80px; /* Space for fixed header */
         }
 
-        /* --- SITE HEADER (Cleaned & Expanded) --- */
+        /* --- SITE HEADER --- */
         .site-header {
             background-color: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
@@ -38,7 +38,7 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 20px 0;
+            padding: 15px 0;
         }
         .header-container {
             max-width: 1400px;
@@ -49,12 +49,13 @@
             padding: 0 40px;
         }
         .brand-logo {
-            color: #ffffff;
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 6px;
-            text-decoration: none;
-            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+        .brand-logo img {
+            height: 40px; /* Adjust scale to fit the navigation bar nicely */
+            width: auto;
+            object-fit: contain;
         }
         .main-nav {
             display: flex;
@@ -321,7 +322,10 @@
     <!-- HEADER NAVIGATION -->
     <header class="site-header">
         <div class="header-container">
-            <a href="#" class="brand-logo">ZALIOR</a>
+            <!-- EMBEDDED LOGO IMAGE INSTEAD OF PLAIN TEXT -->
+            <a href="#" class="brand-logo">
+                <img src="Logo.jpg" alt="ZALIOR">
+            </a>
             <nav class="main-nav">
                 <a href="#" class="nav-link active">Drop 01</a>
                 <a href="#" class="nav-link">Collections</a>
@@ -347,19 +351,16 @@
     <main class="drop-section">
         <h2 class="section-title">Drop 01</h2>
         <div class="grid-container">
-            <!-- Item 1 -->
             <div class="product-card">
                 <h3 class="product-name">Noir Core Hoodie</h3>
                 <p class="product-price">PKR 6,499</p>
                 <button class="add-to-cart-btn">Add To Cart</button>
             </div>
-            <!-- Item 2 -->
             <div class="product-card">
                 <h3 class="product-name">Silent Identity Tee</h3>
                 <p class="product-price">PKR 2,999</p>
                 <button class="add-to-cart-btn">Add To Cart</button>
             </div>
-            <!-- Item 3 -->
             <div class="product-card">
                 <h3 class="product-name">Urban Phantom Cargo</h3>
                 <p class="product-price">PKR 5,999</p>
