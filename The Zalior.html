@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE ZALIOR | Premium Streetwear</title>
-    <!-- Google Fonts for Clean Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="LOGO.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
@@ -34,7 +33,7 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 20px 0;
+            padding: 15px 0; /* Adjusted padding slightly for image logo */
         }
         .header-container {
             max-width: 1400px;
@@ -45,12 +44,14 @@
             padding: 0 40px;
         }
         .brand-logo {
-            color: #ffffff;
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 6px;
+            display: flex;
+            align-items: center;
             text-decoration: none;
-            text-transform: uppercase;
+        }
+        .brand-logo img {
+            height: 45px; /* Adjust this value if you want the logo bigger or smaller */
+            width: auto;
+            display: block;
         }
         .main-nav {
             display: flex;
@@ -123,7 +124,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1600') center/cover no-repeat; /* Fallback aesthetic background representing leather styling */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1600') center/cover no-repeat;
             padding: 20px;
         }
         .hero-title {
@@ -314,15 +315,16 @@
 </head>
 <body>
 
-    <!-- HEADER NAVIGATION -->
     <header class="site-header">
         <div class="header-container">
-            <a href="#" class="brand-logo">ZALIOR</a>
+            <a href="#" class="brand-logo">
+                <img src="LOGO.png" alt="ZALIOR">
+            </a>
             <nav class="main-nav">
                 <a href="#" class="nav-link active">Drop 01</a>
                 <a href="#" class="nav-link">Collections</a>
                 <a href="#" class="nav-link">About</a>
-            </nav>
+                </nav>
             <div class="header-actions">
                 <button class="ai-stylist-btn" onclick="toggleAiAssistant()">
                     <span class="ai-pulse"></span> AI Stylist
@@ -332,73 +334,16 @@
         </div>
     </header>
 
-    <!-- HERO PROFILE -->
     <section class="hero-section">
         <h1 class="hero-title">THE ZALIOR</h1>
         <p class="hero-subtitle">Timeless Style. Premium Quality.</p>
         <div class="hero-tag">Est. 2024 — Drop 01</div>
     </section>
 
-    <!-- PRODUCT CATALOGUE -->
     <main class="drop-section">
         <h2 class="section-title">Drop 01</h2>
         <div class="grid-container">
-            <!-- Item 1 -->
             <div class="product-card">
                 <h3 class="product-name">Noir Core Hoodie</h3>
                 <p class="product-price">PKR 6,499</p>
-                <button class="add-to-cart-btn">Add To Cart</button>
-            </div>
-            <!-- Item 2 -->
-            <div class="product-card">
-                <h3 class="product-name">Silent Identity Tee</h3>
-                <p class="product-price">PKR 2,999</p>
-                <button class="add-to-cart-btn">Add To Cart</button>
-            </div>
-            <!-- Item 3 -->
-            <div class="product-card">
-                <h3 class="product-name">Urban Phantom Cargo</h3>
-                <p class="product-price">PKR 5,999</p>
-                <button class="add-to-cart-btn">Add To Cart</button>
-            </div>
-        </div>
-    </main>
-
-    <!-- AI SIDEBAR DRAWNER -->
-    <div id="ai-drawer" class="ai-drawer">
-        <div class="drawer-header">
-            <h3>ZALIOR AI // STYLIST</h3>
-            <button class="close-btn" onclick="toggleAiAssistant()">&times;</button>
-        </div>
-        <div class="drawer-body">
-            <p class="ai-message">Welcome. Looking for sizing advice or outfit matching strategies for <strong>Drop 01</strong>? Ask me anything.</p>
-            <div class="ai-suggestions">
-                <button class="suggest-chip" onclick="fillInput('Find my size for Noir Core Hoodie')">Find my size for Noir Core Hoodie</button>
-                <button class="suggest-chip" onclick="fillInput('Style combinations for Urban Phantom Cargo')">Style the Urban Phantom Cargo</button>
-            </div>
-        </div>
-        <div class="drawer-footer">
-            <input type="text" id="ai-input-field" placeholder="Type your fit or style query..." class="ai-input">
-        </div>
-    </div>
-
-    <!-- SITE FOOTER -->
-    <footer class="site-footer">
-        <p class="footer-text">&copy; 2026 THE ZALIOR. All Rights Reserved.</p>
-    </footer>
-
-    <!-- INTERACTIVE JAVASCRIPT -->
-    <script>
-        function toggleAiAssistant() {
-            const drawer = document.getElementById('ai-drawer');
-            drawer.classList.toggle('open');
-        }
-
-        function fillInput(text) {
-            document.getElementById('ai-input-field').value = text;
-            document.getElementById('ai-input-field').focus();
-        }
-    </script>
-
-</body>
-</html>
+                <button
